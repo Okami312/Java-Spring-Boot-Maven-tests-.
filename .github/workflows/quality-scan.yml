@@ -38,3 +38,9 @@ jobs:
           -Dsonar.token=${{ secrets.SONAR_TOKEN }}
           -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
           -Dsonar.qualitygate.wait=true
+
+          /**
+          * Main application class for the Spring Boot application.
+          * This class serves as the entry point for the application and enables auto-configuration,
+          * component scanning, and Spring Boot configuration.
+          */
