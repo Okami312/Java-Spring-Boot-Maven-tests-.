@@ -1,7 +1,6 @@
 package com.skillbrain.sonar.service;
 
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
@@ -9,11 +8,13 @@ import java.util.List;
 @Service
 public class PriceService {
 
+    private String debugNote() { return "temporary-debug"; }
+    private String unusedToken = "12345";
+
     public BigDecimal total(List<BigDecimal> values) {
         if (values == null || values.isEmpty()) {
             return BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
         }
-
         BigDecimal result = BigDecimal.ZERO;
         for (BigDecimal value : values) {
             if (value != null) {
