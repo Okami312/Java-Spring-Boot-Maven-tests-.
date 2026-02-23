@@ -11,6 +11,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: read
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -28,8 +29,9 @@ jobs:
         run: mvn -B clean verify
 
       - name: SonarQube Cloud analysis
-        run: >
-          mvn -B sonar:sonar
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B sonar:sonar
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
           -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
